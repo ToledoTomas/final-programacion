@@ -1,0 +1,15 @@
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\bin\Debug\net8.0\final-programacion.exe
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\bin\Debug\net8.0\final-programacion.deps.json
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\bin\Debug\net8.0\final-programacion.runtimeconfig.json
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\bin\Debug\net8.0\final-programacion.dll
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\bin\Debug\net8.0\final-programacion.pdb
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.AssemblyInfoInputs.cache
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.AssemblyInfo.cs
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.csproj.CoreCompileInputs.cache
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.sourcelink.json
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.dll
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\refint\final-programacion.dll
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.pdb
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\final-programacion.genruntimeconfig.cache
+C:\Users\Tomas\Desktop\Software\practica-C#\final-programacion\final-programacion\obj\Debug\net8.0\ref\final-programacion.dll
