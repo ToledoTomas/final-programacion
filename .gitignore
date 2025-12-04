@@ -1,0 +1,116 @@
+############################
+#       BUILD OUTPUT
+############################
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+# Archivos generados por Visual Studio
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+#       VISUAL STUDIO
+############################
+.vs/
+*.vc.db
+*.VC.opendb
+
+# Componentes de VS Designer
+*.designer.cs~
+*_i.c
+*_p.c
+*.cache
+*.ilk
+
+############################
+#     PAQUETES Y RESTAURACIÓN
+############################
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+############################
+#     PUBLICACIÓN / DEPLOY
+############################
+Publish/
+*.publishsettings
+
+############################
+#     ARCHIVOS TEMPORALES
+############################
+*.tmp
+*.temp
+*.log
+*.tlog
+*.cache
+*.dbmdl
+*.bak
+*.orig
+*.old
+
+# Archivos de backup de editores
+*~ 
+*.swp
+*.swo
+
+############################
+#     SETTINGS LOCALES
+############################
+# Configuraciones que no deben subirse
+appsettings.Development.json
+appsettings.Local.json
+
+############################
+#     TESTS
+############################
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+############################
+#     RECURSOS AUTO-GENERADOS
+############################
+*.resx~
+*.resources
+
+############################
+#     SISTEMA OPERATIVO
+############################
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac (por si alguien usa Mac para editar)
+.DS_Store
+
+# Linux
+*.directory
+
+############################
+#     ENTORNOS / IDEs
+############################
+.idea/
+*.iml
+*.vscode/*
+
+############################
+#     OTROS
+############################
+# Archivos de lock de dependencias
+*.lock.json
+
+# Archivos de MSBuild temporales
+*.binlog
+
+# Análisis de código
+*.codeanalysis
