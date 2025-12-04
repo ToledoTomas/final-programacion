@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             cmbTypeFile = new ComboBox();
-            txtNameFile = new TextBox();
+            txtFileName = new TextBox();
             lblTitle = new Label();
             nudMountStudent = new NumericUpDown();
             dgvAlumnos = new DataGridView();
@@ -38,6 +38,7 @@
             lblTypeFile = new Label();
             label3 = new Label();
             label4 = new Label();
+            btnExit = new Button();
             ((System.ComponentModel.ISupportInitialize)nudMountStudent).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             SuspendLayout();
@@ -50,12 +51,12 @@
             cmbTypeFile.Size = new Size(240, 23);
             cmbTypeFile.TabIndex = 0;
             // 
-            // txtNameFile
+            // txtFileName
             // 
-            txtNameFile.Location = new Point(12, 89);
-            txtNameFile.Name = "txtNameFile";
-            txtNameFile.Size = new Size(240, 23);
-            txtNameFile.TabIndex = 1;
+            txtFileName.Location = new Point(12, 89);
+            txtFileName.Name = "txtFileName";
+            txtFileName.Size = new Size(240, 23);
+            txtFileName.TabIndex = 1;
             // 
             // lblTitle
             // 
@@ -85,7 +86,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(676, 391);
+            btnSave.Location = new Point(296, 391);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(112, 47);
             btnSave.TabIndex = 5;
@@ -129,11 +130,22 @@
             label4.TabIndex = 9;
             label4.Text = "Alumnos";
             // 
+            // btnExit
+            // 
+            btnExit.Location = new Point(676, 391);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(112, 47);
+            btnExit.TabIndex = 10;
+            btnExit.Text = "Salir";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
             // CreateFile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnExit);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(lblTypeFile);
@@ -142,7 +154,7 @@
             Controls.Add(dgvAlumnos);
             Controls.Add(nudMountStudent);
             Controls.Add(lblTitle);
-            Controls.Add(txtNameFile);
+            Controls.Add(txtFileName);
             Controls.Add(cmbTypeFile);
             Name = "CreateFile";
             Text = "CreateFile";
@@ -155,7 +167,7 @@
         #endregion
 
         private ComboBox cmbTypeFile;
-        private TextBox txtNameFile;
+        private TextBox txtFileName;
         private Label lblTitle;
         private NumericUpDown nudMountStudent;
         private DataGridView dgvAlumnos;
@@ -164,5 +176,6 @@
         private Label lblTypeFile;
         private Label label3;
         private Label label4;
+        private Button btnExit;
     }
 }

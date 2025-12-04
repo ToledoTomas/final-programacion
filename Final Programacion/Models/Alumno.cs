@@ -14,6 +14,5 @@ namespace Final_Programacion.Models
         public string NumeroDocumento { get; set; } = "";
         public string Email { get; set; } = "";
         public string Telefono { get; set; } = "";
-
     }
 }
