@@ -13,9 +13,16 @@ namespace Final_Programacion
             frm.ShowDialog();
         }
 
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnModifyFile_Click(object sender, EventArgs e)
+        {
+            Form1 ventana = new Form1();
+            ventana.ShowDialog();
         }
     }
 }

@@ -65,6 +65,7 @@
             btnModifyFile.TabIndex = 2;
             btnModifyFile.Text = "Modificar archivo";
             btnModifyFile.UseVisualStyleBackColor = true;
+            btnModifyFile.Click += btnModifyFile_Click;
             // 
             // btnDeleteFile
             // 
@@ -102,7 +103,7 @@
             btnExit.TabIndex = 6;
             btnExit.Text = "Salir";
             btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += this.btnExit_Click;
+            btnExit.Click += btnExit_Click;
             // 
             // btnReportControl
             // 
