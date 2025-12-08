@@ -25,7 +25,7 @@ namespace Final_Programacion
             cmbTypeFile.Items.Add("JSON");
             cmbTypeFile.Items.Add("XML");
             cmbTypeFile.SelectedIndex = 0;
-
+            dgvAlumnos.AllowUserToAddRows = false;
             ConfigurarGrilla();
         }
 
