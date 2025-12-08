@@ -24,5 +24,11 @@ namespace Final_Programacion
             Form1 ventana = new Form1();
             ventana.ShowDialog();
         }
+
+        private void btnReadFile_Click(object sender, EventArgs e)
+        {
+            LeerArchivo ventana = new LeerArchivo();
+            ventana.ShowDialog();
+        }
     }
 }

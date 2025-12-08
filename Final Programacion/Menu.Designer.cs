@@ -56,6 +56,7 @@
             btnReadFile.TabIndex = 1;
             btnReadFile.Text = "Leer archivo existente";
             btnReadFile.UseVisualStyleBackColor = true;
+            btnReadFile.Click += btnReadFile_Click;
             // 
             // btnModifyFile
             // 
