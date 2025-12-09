@@ -4,79 +4,94 @@ using System.Windows.Forms;
 
 namespace Final_Programacion
 {
-    public partial class Form1 : Form   // formulario de modificar archivo
+    public partial class ModificarArchivo : Form
     {
-        // ruta a la carpeta donde se guardan los txt
-        string carpetaArchivos;
+        private string carpetaArchivos;
 
-        public Form1()
+        public ModificarArchivo()
         {
             InitializeComponent();
 
-            // armamos la ruta base como en createfile
+            dgvAlumnos.AllowUserToAddRows = false;
+            dgvAlumnos.ReadOnly = true;
+            dgvAlumnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
             carpetaArchivos = Path.Combine(carpetaBase, "Archivos");
 
-            // si la carpeta no existe la creamos
             if (!Directory.Exists(carpetaArchivos))
                 Directory.CreateDirectory(carpetaArchivos);
         }
 
+        // ===================================================================
+        // FUNCIÓN PARA BUSCAR LA FILA POR LEGAJO  <<< AGREGÁS ESTO AQUÍ ABAJO
+        // ===================================================================
+        private DataGridViewRow BuscarFilaPorLegajo(string legajoBuscado)
+        {
+            foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                string legajo = fila.Cells[0].Value?.ToString() ?? "";
+
+                if (legajo == legajoBuscado)
+                    return fila;
+            }
+
+            return null;
+        }
+
+        // ============================
+        // CARGAR ARCHIVO
+        // ============================
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            // armamos el nombre completo del archivo dentro de la carpeta archivos
-            string nombreTxt = txtNombreArchivo.Text + ".txt";
-            string rutaCompleta = Path.Combine(carpetaArchivos, nombreTxt);
-
-            // verificamos si existe
-            if (!File.Exists(rutaCompleta))
+            if (string.IsNullOrWhiteSpace(txtNombreArchivo.Text))
             {
-                MessageBox.Show("el archivo no existe en la carpeta archivos");
+                MessageBox.Show("Poné el nombre del archivo arriba.");
                 return;
             }
 
-            // limpiamos el datagrid
+            string rutaTxt = Path.Combine(carpetaArchivos, txtNombreArchivo.Text + ".txt");
+
+            if (!File.Exists(rutaTxt))
+            {
+                MessageBox.Show("El archivo no existe en la carpeta Archivos.");
+                return;
+            }
+
             dgvAlumnos.Rows.Clear();
 
-            // leemos todas las lineas
-            string[] lineas = File.ReadAllLines(rutaCompleta);
+            string[] lineas = File.ReadAllLines(rutaTxt);
 
-            // recorremos las lineas
             foreach (string linea in lineas)
             {
-                // separamos por |
                 string[] partes = linea.Split('|');
+                if (partes.Length < 6) continue;
 
-                // por las dudas si viene una linea incompleta
-                if (partes.Length < 6)
-                    continue;
-
-                // cargamos la fila en el datagrid
                 dgvAlumnos.Rows.Add(
-                    partes[0],  // legajo
-                    partes[1],  // apellido
-                    partes[2],  // nombre
-                    partes[3],  // dni
-                    partes[4],  // email
-                    partes[5]   // telefono
+                    partes[0], // legajo
+                    partes[1], // apellido
+                    partes[2], // nombre
+                    partes[3], // dni
+                    partes[4], // email
+                    partes[5]  // telefono
                 );
             }
 
-            MessageBox.Show("archivo cargado ok");
+            MessageBox.Show("Archivo cargado OK.");
         }
 
-        // cuando hago click en una fila del datagrid
+        // ============================
+        // CELLCLICK (podés dejarlo vacío o usarlo)
+        // ============================
         private void dgvAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // si clickeo arriba o fuera de las filas, salgo
             if (e.RowIndex < 0) return;
 
             DataGridViewRow fila = dgvAlumnos.Rows[e.RowIndex];
-
-            // si la fila es la vacia del final, salgo
             if (fila.IsNewRow) return;
 
-            // cargo los textbox
             txtLegajo.Text = fila.Cells[0].Value?.ToString() ?? "";
             txtApellido.Text = fila.Cells[1].Value?.ToString() ?? "";
             txtNombre.Text = fila.Cells[2].Value?.ToString() ?? "";
@@ -85,31 +100,28 @@ namespace Final_Programacion
             txtTelefono.Text = fila.Cells[5].Value?.ToString() ?? "";
         }
 
+
+        // ============================
+        // AGREGAR
+        // ============================
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtLegajo.Text))
             {
-                MessageBox.Show("pone un legajo primero");
+                MessageBox.Show("Poné un legajo primero.");
                 return;
             }
 
-            // validamos email
             if (!EsEmailValido(txtEmail.Text))
             {
-                MessageBox.Show("el email no es valido. debe tener formato ejemplo: nombre@gmail.com");
+                MessageBox.Show("Email inválido. Ejemplo: nombre@gmail.com");
                 return;
             }
 
-            foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+            if (BuscarFilaPorLegajo(txtLegajo.Text) != null)
             {
-                if (fila.IsNewRow) continue;
-
-                if (fila.Cells[0].Value != null &&
-                    fila.Cells[0].Value.ToString() == txtLegajo.Text)
-                {
-                    MessageBox.Show("ya existe un alumno con ese legajo");
-                    return;
-                }
+                MessageBox.Show("Ya existe un alumno con ese legajo.");
+                return;
             }
 
             dgvAlumnos.Rows.Add(
@@ -121,76 +133,49 @@ namespace Final_Programacion
                 txtTelefono.Text
             );
 
-            limpiarTextos();
+            LimpiarTextos();
         }
 
-
-        private bool EsEmailValido(string email)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-                return false;
-
-            // validacion simple: algo@algo.algo
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return System.Text.RegularExpressions.Regex.IsMatch(email, pattern);
-        }
-
-
-        // funcion para limpiar todos los textbox
-        private void limpiarTextos()
-        {
-            txtLegajo.Text = "";
-            txtApellido.Text = "";
-            txtNombre.Text = "";
-            txtDni.Text = "";
-            txtEmail.Text = "";
-            txtTelefono.Text = "";
-
-            txtLegajo.Focus(); // volvemos al legajo para cargar rapido otro
-        }
-
+        // ============================
+        // MODIFICAR (por LEGAJO)
+        // ============================
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvAlumnos.CurrentRow == null)
-            {
-                MessageBox.Show("selecciona un alumno en la tabla");
-                return;
-            }
-
-            DataGridViewRow fila = dgvAlumnos.CurrentRow;
-
-            if (fila.IsNewRow)
-            {
-                MessageBox.Show("esa fila esta vacia");
-                return;
-            }
-
             if (string.IsNullOrWhiteSpace(txtLegajo.Text))
             {
-                MessageBox.Show("pone un legajo primero");
+                MessageBox.Show("Poné un legajo primero.");
                 return;
             }
 
-            // validamos email
             if (!EsEmailValido(txtEmail.Text))
             {
-                MessageBox.Show("el email no es valido. debe tener formato ejemplo: nombre@gmail.com");
+                MessageBox.Show("Email inválido.");
                 return;
             }
 
-            foreach (DataGridViewRow otraFila in dgvAlumnos.Rows)
-            {
-                if (otraFila.IsNewRow) continue;
-                if (otraFila == fila) continue;
+            // BUSCA LA FILA POR LEGAJO, NO POR SELECCIÓN
+            DataGridViewRow fila = BuscarFilaPorLegajo(txtLegajo.Text);
 
-                if (otraFila.Cells[0].Value != null &&
-                    otraFila.Cells[0].Value.ToString() == txtLegajo.Text)
+            if (fila == null)
+            {
+                MessageBox.Show("No existe un alumno con ese legajo.");
+                return;
+            }
+
+            // chequeo por si cambiaste el legajo y choca con otro
+            foreach (DataGridViewRow otra in dgvAlumnos.Rows)
+            {
+                if (otra.IsNewRow) continue;
+                if (otra == fila) continue;
+
+                if (otra.Cells[0].Value?.ToString() == txtLegajo.Text)
                 {
-                    MessageBox.Show("ya existe otro alumno con ese legajo");
+                    MessageBox.Show("Ya existe otro alumno con ese legajo.");
                     return;
                 }
             }
 
+            // ACTUALIZA LA FILA ENCONTRADA POR LEGAJO
             fila.Cells[0].Value = txtLegajo.Text;
             fila.Cells[1].Value = txtApellido.Text;
             fila.Cells[2].Value = txtNombre.Text;
@@ -198,100 +183,88 @@ namespace Final_Programacion
             fila.Cells[4].Value = txtEmail.Text;
             fila.Cells[5].Value = txtTelefono.Text;
 
-            MessageBox.Show("alumno modificado ok");
+            MessageBox.Show("Alumno modificado OK.");
         }
 
-
-        // boton eliminar alumno
+        // ============================
+        // ELIMINAR (por LEGAJO)
+        // ============================
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // si no hay fila seleccionada, salimos
-            if (dgvAlumnos.CurrentRow == null)
+            if (string.IsNullOrWhiteSpace(txtLegajo.Text))
             {
-                MessageBox.Show("selecciona un alumno en la tabla primero");
+                MessageBox.Show("Ingresá el legajo del alumno a borrar.");
                 return;
             }
 
-            DataGridViewRow fila = dgvAlumnos.CurrentRow;
+            // BUSCA LA FILA POR LEGAJO
+            DataGridViewRow fila = BuscarFilaPorLegajo(txtLegajo.Text);
 
-            // si es la fila vacia del final, salimos
-            if (fila.IsNewRow)
+            if (fila == null)
             {
-                MessageBox.Show("esa fila esta vacia, no hay nada para borrar");
+                MessageBox.Show("No existe un alumno con ese legajo.");
                 return;
             }
 
-            // mostramos los datos para confirmar
-            string legajo = fila.Cells[0].Value?.ToString() ?? "";
-            string nombre = fila.Cells[2].Value?.ToString() ?? "";
             string apellido = fila.Cells[1].Value?.ToString() ?? "";
+            string nombre = fila.Cells[2].Value?.ToString() ?? "";
 
             DialogResult rta = MessageBox.Show(
-                "queres borrar al alumno " + apellido + ", " + nombre + " (legajo " + legajo + ")?",
-                "confirmar eliminacion",
+                $"¿Querés borrar a {apellido}, {nombre} (legajo {txtLegajo.Text})?",
+                "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+                MessageBoxIcon.Question);
 
-            // si el usuario dijo que no, nos vamos
-            if (rta == DialogResult.No)
-                return;
+            if (rta == DialogResult.No) return;
 
-            // si dijo que si, borramos la fila del datagrid
             dgvAlumnos.Rows.Remove(fila);
+            LimpiarTextos();
 
-            // limpiamos los textbox
-            limpiarTextos();
-
-            MessageBox.Show("alumno eliminado");
+            MessageBox.Show("Alumno eliminado.");
         }
 
-        // boton guardar y salir
+
+
+        // ============================
+        // GUARDAR ARCHIVO (con backup)
+        // ============================
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // validamos que haya nombre de archivo
             if (string.IsNullOrWhiteSpace(txtNombreArchivo.Text))
             {
-                MessageBox.Show("pone el nombre del archivo arriba");
+                MessageBox.Show("Poné el nombre del archivo arriba.");
                 return;
             }
 
-            // nombres de archivo dentro de la carpeta archivos
             string nombreBase = txtNombreArchivo.Text;
             string rutaTxt = Path.Combine(carpetaArchivos, nombreBase + ".txt");
             string rutaBak = Path.Combine(carpetaArchivos, nombreBase + ".bak");
 
-            // hacemos backup si existe el txt original
+            // backup
             if (File.Exists(rutaTxt))
             {
                 try
                 {
-                    // si ya hay un bak viejo, lo borramos
                     if (File.Exists(rutaBak))
                         File.Delete(rutaBak);
 
-                    // renombramos el txt original a .bak
                     File.Move(rutaTxt, rutaBak);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("no se pudo hacer el backup: " + ex.Message);
+                    MessageBox.Show("No se pudo hacer el backup: " + ex.Message);
                     return;
                 }
             }
 
             try
             {
-                // abrimos el archivo nuevo .txt para escribir todo de cero
                 using (StreamWriter sw = new StreamWriter(rutaTxt, false))
                 {
-                    // recorremos las filas del datagrid
                     foreach (DataGridViewRow fila in dgvAlumnos.Rows)
                     {
-                        // saltamos la fila vacia del final
                         if (fila.IsNewRow) continue;
 
-                        // levantamos los datos de cada columna
                         string legajo = fila.Cells[0].Value?.ToString() ?? "";
                         string apellido = fila.Cells[1].Value?.ToString() ?? "";
                         string nombre = fila.Cells[2].Value?.ToString() ?? "";
@@ -299,38 +272,51 @@ namespace Final_Programacion
                         string email = fila.Cells[4].Value?.ToString() ?? "";
                         string telefono = fila.Cells[5].Value?.ToString() ?? "";
 
-                        // armamos la linea con el mismo formato del tp: campo|campo|campo...
                         string linea = legajo + "|" + apellido + "|" + nombre + "|" +
                                        dni + "|" + email + "|" + telefono;
 
-                        // escribimos la linea en el archivo
                         sw.WriteLine(linea);
                     }
                 }
 
-                MessageBox.Show("archivo guardado ok");
-                this.Close();   // cerramos el formulario y volvemos al menu
+                MessageBox.Show("Archivo guardado OK.");
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("hubo un problema al guardar: " + ex.Message);
+                MessageBox.Show("Hubo un problema al guardar: " + ex.Message);
             }
         }
 
+        // ============================
+        // CANCELAR
+        // ============================
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // cerramos la ventana sin hacer nada
             this.Close();
+        }
+
+        // ============================
+        // UTILIDADES
+        // ============================
+        private bool EsEmailValido(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(email, pattern);
+        }
+
+        private void LimpiarTextos()
+        {
+            txtLegajo.Clear();
+            txtApellido.Clear();
+            txtNombre.Clear();
+            txtDni.Clear();
+            txtEmail.Clear();
+            txtTelefono.Clear();
+            txtLegajo.Focus();
         }
     }
 }
-
-
-
-
-
-
-
-
-
-

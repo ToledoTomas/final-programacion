@@ -1,16 +1,15 @@
 ﻿namespace Final_Programacion
 {
-    partial class Form1
+    partial class ModificarArchivo
     {
         /// <summary>
-        /// Required designer variable.
+        /// Variable del diseñador.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,317 +19,290 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de Windows Forms
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            lblArchivo = new Label();
-            txtNombreArchivo = new TextBox();
-            btnCargar = new Button();
-            dgvAlumnos = new DataGridView();
-            colLegajo = new DataGridViewTextBoxColumn();
-            colApellido = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            colDni = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
-            colTelefono = new DataGridViewTextBoxColumn();
-            txtLegajo = new Label();
-            txtApellido = new Label();
-            txtNombre = new Label();
-            txtDni = new Label();
-            txtEmail = new Label();
-            txtTelefono = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            btnAgregar = new Button();
-            btnModificar = new Button();
-            btnEliminar = new Button();
-            btnGuardar = new Button();
-            btnCancelar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
-            SuspendLayout();
-            // 
-            // lblArchivo
-            // 
-            lblArchivo.AutoSize = true;
-            lblArchivo.Location = new Point(268, 20);
-            lblArchivo.Name = "lblArchivo";
-            lblArchivo.Size = new Size(112, 15);
-            lblArchivo.TabIndex = 0;
-            lblArchivo.Text = "Nombre del archivo";
-            // 
-            // txtNombreArchivo
-            // 
-            txtNombreArchivo.Location = new Point(386, 12);
-            txtNombreArchivo.Name = "txtNombreArchivo";
-            txtNombreArchivo.Size = new Size(106, 23);
-            txtNombreArchivo.TabIndex = 1;
-            // 
-            // btnCargar
-            // 
-            btnCargar.Location = new Point(630, 9);
-            btnCargar.Name = "btnCargar";
-            btnCargar.Size = new Size(95, 37);
-            btnCargar.TabIndex = 2;
-            btnCargar.Text = "Cargar";
-            btnCargar.UseVisualStyleBackColor = true;
-            btnCargar.Click += btnCargar_Click;
+            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.colLegajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNombreArchivo = new System.Windows.Forms.Label();
+            this.txtNombreArchivo = new System.Windows.Forms.TextBox();
+            this.btnCargar = new System.Windows.Forms.Button();
+            this.lblLegajo = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
+            this.SuspendLayout();
             // 
             // dgvAlumnos
             // 
-            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAlumnos.Columns.AddRange(new DataGridViewColumn[] { colLegajo, colApellido, Nombre, colDni, colEmail, colTelefono });
-            dgvAlumnos.Location = new Point(108, 55);
-            dgvAlumnos.Name = "dgvAlumnos";
-            dgvAlumnos.Size = new Size(643, 121);
-            dgvAlumnos.TabIndex = 3;
-            dgvAlumnos.CellClick += dgvAlumnos_CellClick;
+            this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colLegajo,
+            this.colApellido,
+            this.colNombre,
+            this.colDni,
+            this.colEmail,
+            this.colTelefono});
+            this.dgvAlumnos.Location = new System.Drawing.Point(30, 60);
+            this.dgvAlumnos.Name = "dgvAlumnos";
+            this.dgvAlumnos.RowTemplate.Height = 24;
+            this.dgvAlumnos.Size = new System.Drawing.Size(720, 180);
+            this.dgvAlumnos.TabIndex = 0;
+            this.dgvAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellClick);
             // 
             // colLegajo
             // 
-            colLegajo.HeaderText = "Legajo";
-            colLegajo.Name = "colLegajo";
+            this.colLegajo.HeaderText = "Legajo";
+            this.colLegajo.Name = "colLegajo";
             // 
             // colApellido
             // 
-            colApellido.HeaderText = "Apellido";
-            colApellido.Name = "colApellido";
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
             // 
-            // Nombre
+            // colNombre
             // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
             // 
             // colDni
             // 
-            colDni.HeaderText = "DNI";
-            colDni.Name = "colDni";
+            this.colDni.HeaderText = "DNI";
+            this.colDni.Name = "colDni";
             // 
             // colEmail
             // 
-            colEmail.HeaderText = "Email";
-            colEmail.Name = "colEmail";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
             // 
             // colTelefono
             // 
-            colTelefono.HeaderText = "Teléfono";
-            colTelefono.Name = "colTelefono";
+            this.colTelefono.HeaderText = "Teléfono";
+            this.colTelefono.Name = "colTelefono";
             // 
-            // txtLegajo
+            // lblNombreArchivo
             // 
-            txtLegajo.AutoSize = true;
-            txtLegajo.Location = new Point(167, 208);
-            txtLegajo.Name = "txtLegajo";
-            txtLegajo.Size = new Size(42, 15);
-            txtLegajo.TabIndex = 4;
-            txtLegajo.Text = "Legajo";
+            this.lblNombreArchivo.AutoSize = true;
+            this.lblNombreArchivo.Location = new System.Drawing.Point(27, 20);
+            this.lblNombreArchivo.Name = "lblNombreArchivo";
+            this.lblNombreArchivo.Size = new System.Drawing.Size(108, 13);
+            this.lblNombreArchivo.TabIndex = 1;
+            this.lblNombreArchivo.Text = "Nombre del archivo:";
             // 
-            // txtApellido
+            // txtNombreArchivo
             // 
-            txtApellido.AutoSize = true;
-            txtApellido.Location = new Point(169, 246);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(51, 15);
-            txtApellido.TabIndex = 5;
-            txtApellido.Text = "Apellido";
+            this.txtNombreArchivo.Location = new System.Drawing.Point(141, 17);
+            this.txtNombreArchivo.Name = "txtNombreArchivo";
+            this.txtNombreArchivo.Size = new System.Drawing.Size(200, 20);
+            this.txtNombreArchivo.TabIndex = 2;
             // 
-            // txtNombre
+            // btnCargar
             // 
-            txtNombre.AutoSize = true;
-            txtNombre.Location = new Point(169, 285);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(51, 15);
-            txtNombre.TabIndex = 7;
-            txtNombre.Text = "Nombre";
+            this.btnCargar.Location = new System.Drawing.Point(370, 15);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(100, 23);
+            this.btnCargar.TabIndex = 3;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
-            // txtDni
+            // Etiquetas y TextBox de datos
             // 
-            txtDni.AutoSize = true;
-            txtDni.Location = new Point(173, 325);
-            txtDni.Name = "txtDni";
-            txtDni.Size = new Size(27, 15);
-            txtDni.TabIndex = 6;
-            txtDni.Text = "DNI";
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Location = new System.Drawing.Point(27, 270);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(43, 13);
+            this.lblLegajo.TabIndex = 4;
+            this.lblLegajo.Text = "Legajo:";
             // 
-            // txtEmail
+            this.txtLegajo.Location = new System.Drawing.Point(100, 267);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(150, 20);
+            this.txtLegajo.TabIndex = 5;
             // 
-            txtEmail.AutoSize = true;
-            txtEmail.Location = new Point(173, 368);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(36, 15);
-            txtEmail.TabIndex = 9;
-            txtEmail.Text = "Email";
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(27, 300);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.TabIndex = 6;
+            this.lblApellido.Text = "Apellido:";
             // 
-            // txtTelefono
+            this.txtApellido.Location = new System.Drawing.Point(100, 297);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(150, 20);
+            this.txtApellido.TabIndex = 7;
             // 
-            txtTelefono.AutoSize = true;
-            txtTelefono.Location = new Point(167, 410);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(53, 15);
-            txtTelefono.TabIndex = 8;
-            txtTelefono.Text = "Telefono";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(27, 330);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "Nombre:";
             // 
-            // textBox2
+            this.txtNombre.Location = new System.Drawing.Point(100, 327);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(150, 20);
+            this.txtNombre.TabIndex = 9;
             // 
-            textBox2.Location = new Point(226, 200);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 10;
+            this.lblDni.AutoSize = true;
+            this.lblDni.Location = new System.Drawing.Point(27, 360);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(29, 13);
+            this.lblDni.TabIndex = 10;
+            this.lblDni.Text = "DNI:";
             // 
-            // textBox3
+            this.txtDni.Location = new System.Drawing.Point(100, 357);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(150, 20);
+            this.txtDni.TabIndex = 11;
             // 
-            textBox3.Location = new Point(226, 238);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 11;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(27, 390);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(38, 13);
+            this.lblEmail.TabIndex = 12;
+            this.lblEmail.Text = "Email:";
             // 
-            // textBox4
+            this.txtEmail.Location = new System.Drawing.Point(100, 387);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(150, 20);
+            this.txtEmail.TabIndex = 13;
             // 
-            textBox4.Location = new Point(226, 317);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 13;
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Location = new System.Drawing.Point(27, 420);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(52, 13);
+            this.lblTelefono.TabIndex = 14;
+            this.lblTelefono.Text = "Teléfono:";
             // 
-            // textBox5
+            this.txtTelefono.Location = new System.Drawing.Point(100, 417);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(150, 20);
+            this.txtTelefono.TabIndex = 15;
             // 
-            textBox5.Location = new Point(226, 277);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 12;
+            // Botones de la derecha
             // 
-            // textBox6
+            this.btnAgregar.Location = new System.Drawing.Point(350, 265);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(120, 25);
+            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            textBox6.Location = new Point(226, 402);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 15;
+            this.btnModificar.Location = new System.Drawing.Point(350, 300);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(120, 25);
+            this.btnModificar.TabIndex = 17;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // textBox7
+            this.btnEliminar.Location = new System.Drawing.Point(350, 335);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(120, 25);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            textBox7.Location = new Point(226, 360);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 14;
+            this.btnGuardar.Location = new System.Drawing.Point(350, 370);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(120, 25);
+            this.btnGuardar.TabIndex = 19;
+            this.btnGuardar.Text = "Guardar y salir";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnAgregar
+            this.btnCancelar.Location = new System.Drawing.Point(350, 405);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(120, 25);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            btnAgregar.Location = new Point(576, 191);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(123, 32);
-            btnAgregar.TabIndex = 16;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            // ModificarArchivo (form)
             // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(576, 246);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(123, 32);
-            btnModificar.TabIndex = 17;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(576, 302);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(123, 32);
-            btnEliminar.TabIndex = 18;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(576, 356);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(123, 32);
-            btnGuardar.TabIndex = 19;
-            btnGuardar.Text = "Guardar y salir";
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(576, 408);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(123, 32);
-            btnCancelar.TabIndex = 20;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
-            // Form1
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnAgregar);
-            Controls.Add(textBox6);
-            Controls.Add(textBox7);
-            Controls.Add(textBox4);
-            Controls.Add(textBox5);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(txtEmail);
-            Controls.Add(txtTelefono);
-            Controls.Add(txtNombre);
-            Controls.Add(txtDni);
-            Controls.Add(txtApellido);
-            Controls.Add(txtLegajo);
-            Controls.Add(dgvAlumnos);
-            Controls.Add(btnCargar);
-            Controls.Add(txtNombreArchivo);
-            Controls.Add(lblArchivo);
-            Name = "Form1";
-            Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.lblTelefono);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.lblDni);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.txtLegajo);
+            this.Controls.Add(this.lblLegajo);
+            this.Controls.Add(this.btnCargar);
+            this.Controls.Add(this.txtNombreArchivo);
+            this.Controls.Add(this.lblNombreArchivo);
+            this.Controls.Add(this.dgvAlumnos);
+            this.Name = "ModificarArchivo";
+            this.Text = "Modificar archivo";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
 
-        private Label lblArchivo;
-        private TextBox txtNombreArchivo;
-        private Button btnCargar;
-        private DataGridView dgvAlumnos;
-        private Label txtLegajo;
-        private Label txtApellido;
-        private Label txtNombre;
-        private Label txtDni;
-        private Label txtEmail;
-        private Label txtTelefono;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private Button btnAgregar;
-        private Button btnModificar;
-        private Button btnEliminar;
-        private Button btnGuardar;
-        private Button btnCancelar;
-        private DataGridViewTextBoxColumn colLegajo;
-        private DataGridViewTextBoxColumn colApellido;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn colDni;
-        private DataGridViewTextBoxColumn colEmail;
-        private DataGridViewTextBoxColumn colTelefono;
+        private System.Windows.Forms.DataGridView dgvAlumnos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLegajo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
+        private System.Windows.Forms.Label lblNombreArchivo;
+        private System.Windows.Forms.TextBox txtNombreArchivo;
+        private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.Label lblLegajo;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.TextBox txtLegajo;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
