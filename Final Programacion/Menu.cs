@@ -21,7 +21,7 @@ namespace Final_Programacion
 
         private void btnModifyFile_Click(object sender, EventArgs e)
         {
-            Form1 ventana = new Form1();
+            ModificarArchivo ventana = new ModificarArchivo();
             ventana.ShowDialog();
         }
 
