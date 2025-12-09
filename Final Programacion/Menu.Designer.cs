@@ -114,6 +114,7 @@
             btnReportControl.TabIndex = 7;
             btnReportControl.Text = "Reporte con corte de control";
             btnReportControl.UseVisualStyleBackColor = true;
+            btnReportControl.Click += btnReportControl_Click;
             // 
             // FrmMenu
             // 

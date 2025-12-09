@@ -30,5 +30,11 @@ namespace Final_Programacion
             LeerArchivo ventana = new LeerArchivo();
             ventana.ShowDialog();
         }
+
+        private void btnReportControl_Click(object sender, EventArgs e)
+        {
+            Reporte_Control ventana = new Reporte_Control();
+            ventana.ShowDialog();
+        }
     }
 }
