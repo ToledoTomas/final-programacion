@@ -1,3 +1,4 @@
+
 namespace Final_Programacion
 {
     public partial class FrmMenu : Form
@@ -35,6 +36,12 @@ namespace Final_Programacion
         {
             Reporte_Control ventana = new Reporte_Control();
             ventana.ShowDialog();
+        }
+
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            EliminarArchivo ventanaEliminar = new EliminarArchivo();
+            ventanaEliminar.ShowDialog();
         }
     }
 }
