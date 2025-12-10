@@ -101,7 +101,15 @@ namespace Final_Programacion
 
             foreach (var linea in lineas)
             {
-                var datos = linea.Split('|');
+                string[] datos;
+
+                if (linea.Contains(","))            // CSV
+                    datos = linea.Split(',');
+                else if (linea.Contains("|"))       // TXT estilo pipe
+                    datos = linea.Split('|');
+                else
+                    continue;
+
                 if (datos.Length == 6)
                     registros.Add(datos);
             }
@@ -109,6 +117,7 @@ namespace Final_Programacion
             paginaActual = 0;
             MostrarPagina();
         }
+
 
 
         private void CargarJSON(string ruta)
