@@ -13,30 +13,41 @@ namespace Final_Programacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar archivo";
-            openFileDialog.Filter = "Todos los archivos|*.*";
+            string nombreArchivo = txtRuta.Text.Trim();
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (string.IsNullOrWhiteSpace(nombreArchivo))
             {
-                txtRuta.Text = openFileDialog.FileName;
-                FileInfo info = new FileInfo(openFileDialog.FileName);
-
-                double tamanoKB = info.Length / 1024.0;
-
-                string datosArchivo = "INFORMACIÓN DEL ARCHIVO:\n\n" +
-                                     "Nombre: " + info.Name + "\n\n" +
-                                     "Tamaño: " + tamanoKB.ToString("0.00") + " KB\n\n" +
-                                     "Creación: " + info.CreationTime + "\n\n" +
-                                     "Modificación: " + info.LastWriteTime;
-
-                lblDatosArchivo.Text = datosArchivo;
+                MessageBox.Show("Ingrese el nombre del archivo con la extensión.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            string carpetaArchivos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Archivos");
+            string rutaCompleta = Path.Combine(carpetaArchivos, nombreArchivo);
+
+            if (!File.Exists(rutaCompleta))
+            {
+                MessageBox.Show("El archivo NO existe en la carpeta Archivos.", "No encontrado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            FileInfo info = new FileInfo(rutaCompleta);
+            double tamKB = info.Length / 1024.0;
+
+            lblDatosArchivo.Text =
+                "INFORMACIÓN DEL ARCHIVO:\n\n" +
+                $"Nombre: {info.Name}\n\n" +
+                $"Tamaño: {tamKB:0.00} KB\n\n" +
+                $"Creación: {info.CreationTime}\n\n" +
+                $"Modificación: {info.LastWriteTime}";
+
+            txtRuta.Tag = rutaCompleta; // Guardamos ruta real para eliminar
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            string ruta = txtRuta.Text;
+            string ruta = txtRuta.Tag as string;
 
             if (string.IsNullOrEmpty(ruta) || !File.Exists(ruta))
             {
