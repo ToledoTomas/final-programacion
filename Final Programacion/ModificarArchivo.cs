@@ -12,9 +12,7 @@ namespace Final_Programacion
         {
             InitializeComponent();
 
-            dgvAlumnos.AllowUserToAddRows = false;
-            dgvAlumnos.ReadOnly = true;
-            dgvAlumnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ConfigurarGrillaVisual();
 
             string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
             carpetaArchivos = Path.Combine(carpetaBase, "Archivos");
@@ -22,7 +20,16 @@ namespace Final_Programacion
             if (!Directory.Exists(carpetaArchivos))
                 Directory.CreateDirectory(carpetaArchivos);
         }
-
+        private void ConfigurarGrillaVisual()
+        {
+            dgvAlumnos.ReadOnly = true;
+            dgvAlumnos.AllowUserToAddRows = false;
+            dgvAlumnos.AllowUserToDeleteRows = false;
+            dgvAlumnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAlumnos.MultiSelect = false;
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAlumnos.RowHeadersVisible = false;
+        }
         // ===================================================================
         // FUNCIÓN PARA BUSCAR LA FILA POR LEGAJO  <<< AGREGÁS ESTO AQUÍ ABAJO
         // ===================================================================
@@ -48,39 +55,54 @@ namespace Final_Programacion
         {
             if (string.IsNullOrWhiteSpace(txtNombreArchivo.Text))
             {
-                MessageBox.Show("Poné el nombre del archivo arriba.");
+                MessageBox.Show("Ingresá el nombre del archivo (sin extensión).");
                 return;
             }
 
-            string rutaTxt = Path.Combine(carpetaArchivos, txtNombreArchivo.Text + ".txt");
+            string nombreBase = txtNombreArchivo.Text.Trim();
 
-            if (!File.Exists(rutaTxt))
+            // Busca cualquier archivo que empiece con ese nombre sin importar extensión
+            string patron = nombreBase + ".*";
+            string[] archivos = Directory.GetFiles(carpetaArchivos, patron);
+
+            if (archivos.Length == 0)
             {
-                MessageBox.Show("El archivo no existe en la carpeta Archivos.");
+                MessageBox.Show("No se encontró ningún archivo con ese nombre.");
                 return;
             }
+
+            // Tomamos el primero que encuentre
+            string rutaFinal = archivos[0];
 
             dgvAlumnos.Rows.Clear();
 
-            string[] lineas = File.ReadAllLines(rutaTxt);
+            string[] lineas = File.ReadAllLines(rutaFinal);
 
             foreach (string linea in lineas)
             {
-                string[] partes = linea.Split('|');
+                string[] partes;
+
+                // detectamos el formato según extensión
+                if (rutaFinal.EndsWith(".txt"))
+                    partes = linea.Split('|');
+
+                else if (rutaFinal.EndsWith(".csv"))
+                    partes = linea.Split(',');
+
+                else
+                {
+                    MessageBox.Show("Formato no soportado: " + Path.GetExtension(rutaFinal));
+                    return;
+                }
+
                 if (partes.Length < 6) continue;
 
-                dgvAlumnos.Rows.Add(
-                    partes[0], // legajo
-                    partes[1], // apellido
-                    partes[2], // nombre
-                    partes[3], // dni
-                    partes[4], // email
-                    partes[5]  // telefono
-                );
+                dgvAlumnos.Rows.Add(partes[0], partes[1], partes[2], partes[3], partes[4], partes[5]);
             }
 
-            MessageBox.Show("Archivo cargado OK.");
+            MessageBox.Show("Archivo cargado OK (" + Path.GetFileName(rutaFinal) + ")");
         }
+
 
         // ============================
         // CELLCLICK (podés dejarlo vacío o usarlo)
