@@ -130,6 +130,7 @@
             btnConvertir.TabIndex = 9;
             btnConvertir.Text = "Convertir";
             btnConvertir.UseVisualStyleBackColor = true;
+            btnConvertir.Click += btnConvertir_Click;
             // 
             // btnSalir
             // 
