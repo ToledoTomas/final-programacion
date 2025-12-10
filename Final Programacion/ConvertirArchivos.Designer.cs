@@ -44,16 +44,17 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(316, 26);
+            lblTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(267, 9);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(171, 15);
+            lblTitulo.Size = new Size(228, 21);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "CONVERTIR ENTRE FORMATOS";
             // 
             // lblArchivoOrigen
             // 
             lblArchivoOrigen.AutoSize = true;
-            lblArchivoOrigen.Location = new Point(127, 81);
+            lblArchivoOrigen.Location = new Point(12, 61);
             lblArchivoOrigen.Name = "lblArchivoOrigen";
             lblArchivoOrigen.Size = new Size(188, 15);
             lblArchivoOrigen.TabIndex = 1;
@@ -61,33 +62,35 @@
             // 
             // txtArchivoOrigen
             // 
-            txtArchivoOrigen.Location = new Point(349, 73);
+            txtArchivoOrigen.Location = new Point(12, 79);
             txtArchivoOrigen.Name = "txtArchivoOrigen";
-            txtArchivoOrigen.Size = new Size(100, 23);
+            txtArchivoOrigen.Size = new Size(209, 23);
             txtArchivoOrigen.TabIndex = 2;
             // 
             // btnCargarOrigen
             // 
-            btnCargarOrigen.Location = new Point(531, 73);
+            btnCargarOrigen.Location = new Point(227, 61);
             btnCargarOrigen.Name = "btnCargarOrigen";
-            btnCargarOrigen.Size = new Size(111, 23);
+            btnCargarOrigen.Size = new Size(119, 41);
             btnCargarOrigen.TabIndex = 3;
             btnCargarOrigen.Text = "Cargar origen";
+            btnCargarOrigen.Click += btnCargarOrigen_Click;
             btnCargarOrigen.UseVisualStyleBackColor = true;
             // 
             // lblFormatoOrigen
             // 
             lblFormatoOrigen.AutoSize = true;
-            lblFormatoOrigen.Location = new Point(349, 138);
+            lblFormatoOrigen.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFormatoOrigen.Location = new Point(12, 139);
             lblFormatoOrigen.Name = "lblFormatoOrigen";
-            lblFormatoOrigen.Size = new Size(108, 15);
+            lblFormatoOrigen.Size = new Size(114, 15);
             lblFormatoOrigen.TabIndex = 4;
             lblFormatoOrigen.Text = "Formato detectado";
             // 
             // lblFormatoDestino
             // 
             lblFormatoDestino.AutoSize = true;
-            lblFormatoDestino.Location = new Point(215, 194);
+            lblFormatoDestino.Location = new Point(12, 175);
             lblFormatoDestino.Name = "lblFormatoDestino";
             lblFormatoDestino.Size = new Size(110, 15);
             lblFormatoDestino.TabIndex = 5;
@@ -98,7 +101,7 @@
             cmbFormatoDestino.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFormatoDestino.FormattingEnabled = true;
             cmbFormatoDestino.Items.AddRange(new object[] { "TXT", "CSV", "JSON", "XML" });
-            cmbFormatoDestino.Location = new Point(349, 186);
+            cmbFormatoDestino.Location = new Point(12, 193);
             cmbFormatoDestino.Name = "cmbFormatoDestino";
             cmbFormatoDestino.Size = new Size(121, 23);
             cmbFormatoDestino.TabIndex = 6;
@@ -106,7 +109,7 @@
             // lblArchivoDestino
             // 
             lblArchivoDestino.AutoSize = true;
-            lblArchivoDestino.Location = new Point(108, 258);
+            lblArchivoDestino.Location = new Point(12, 218);
             lblArchivoDestino.Name = "lblArchivoDestino";
             lblArchivoDestino.Size = new Size(217, 15);
             lblArchivoDestino.TabIndex = 7;
@@ -114,23 +117,23 @@
             // 
             // txtArchivoDestino
             // 
-            txtArchivoDestino.Location = new Point(359, 250);
+            txtArchivoDestino.Location = new Point(12, 236);
             txtArchivoDestino.Name = "txtArchivoDestino";
-            txtArchivoDestino.Size = new Size(100, 23);
+            txtArchivoDestino.Size = new Size(233, 23);
             txtArchivoDestino.TabIndex = 8;
             // 
             // btnConvertir
             // 
-            btnConvertir.Location = new Point(194, 363);
+            btnConvertir.Location = new Point(251, 211);
             btnConvertir.Name = "btnConvertir";
-            btnConvertir.Size = new Size(97, 30);
+            btnConvertir.Size = new Size(110, 48);
             btnConvertir.TabIndex = 9;
             btnConvertir.Text = "Convertir";
             btnConvertir.UseVisualStyleBackColor = true;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(518, 363);
+            btnSalir.Location = new Point(691, 408);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(97, 30);
             btnSalir.TabIndex = 10;
