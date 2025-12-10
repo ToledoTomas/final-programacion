@@ -38,10 +38,17 @@ namespace Final_Programacion
             ventana.ShowDialog();
         }
 
+
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
             EliminarArchivo ventanaEliminar = new EliminarArchivo();
             ventanaEliminar.ShowDialog();
+        }
+
+        private void btnConvertFile_Click(object sender, EventArgs e)
+        {
+            ConvertirArchivos ventana = new ConvertirArchivos();
+            ventana.ShowDialog();
         }
     }
 }

@@ -198,6 +198,7 @@ namespace Final_Programacion
             }
 
             // BUSCA LA FILA POR LEGAJO
+
             DataGridViewRow fila = BuscarFilaPorLegajo(txtLegajo.Text);
 
             if (fila == null)
