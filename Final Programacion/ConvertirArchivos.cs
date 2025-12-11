@@ -20,7 +20,14 @@ namespace Final_Programacion
         {
             InitializeComponent();
 
-            carpetaArchivos = Path.Combine(Application.StartupPath, "Archivos");
+            string carpetaProyecto =
+                Directory.GetParent(Application.StartupPath)  // net8.0-windows
+                         .Parent                             // Debug
+                         .Parent                             // bin
+                         .Parent                             // Final Programacion
+                         .FullName;                          // final-programacion
+
+            carpetaArchivos = Path.Combine(carpetaProyecto, "Registros");
             if (!Directory.Exists(carpetaArchivos))
                 Directory.CreateDirectory(carpetaArchivos);
 

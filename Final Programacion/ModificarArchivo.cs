@@ -18,8 +18,15 @@ namespace Final_Programacion
 
             ConfigurarGrillaVisual();
 
-            string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
-            carpetaArchivos = Path.Combine(carpetaBase, "Archivos");
+            carpetaArchivos = Path.Combine(
+              Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)
+                       .Parent.Parent.Parent.Parent.FullName,
+              "Registros"
+            );
+
+            if (!Directory.Exists(carpetaArchivos))
+                Directory.CreateDirectory(carpetaArchivos);
+
 
             if (!Directory.Exists(carpetaArchivos))
                 Directory.CreateDirectory(carpetaArchivos);

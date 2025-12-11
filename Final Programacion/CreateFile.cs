@@ -151,9 +151,11 @@ namespace Final_Programacion
         private string GuardarArchivo(string formato, string nombreArchivo, List<Alumno> alumnos)
         {
             // Creamos carpeta "Archivos" si no existe
-            string carpetaBase = AppDomain.CurrentDomain.BaseDirectory;
-            string carpetaArchivos = Path.Combine(carpetaBase, "Archivos");
-
+            string carpetaArchivos = Path.Combine(
+                Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)
+                         .Parent.Parent.Parent.Parent.FullName,
+                "Registros"
+            );
             if (!Directory.Exists(carpetaArchivos))
                 Directory.CreateDirectory(carpetaArchivos);
 

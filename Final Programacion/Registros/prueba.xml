@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Alumnos>
+  <Alumno>
+    <Legajo>1</Legajo>
+    <Apellido>David</Apellido>
+    <Nombres>Bruno</Nombres>
+    <NumeroDocumento>43126134</NumeroDocumento>
+    <Email>bruno@gmail.com</Email>
+    <Telefono>3334423424</Telefono>
+  </Alumno>
+</Alumnos>

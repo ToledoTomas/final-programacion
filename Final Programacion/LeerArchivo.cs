@@ -58,7 +58,10 @@ namespace Final_Programacion
             string nombreArchivo = txtNombre.Text.Trim();
 
             string extension = formato.ToLower();
-            string carpeta = Path.Combine(Application.StartupPath, "Archivos");
+            string carpeta = Path.Combine(
+                Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName,
+                "Registros"
+            );
             string archivo = Path.Combine(carpeta, $"{nombreArchivo}.{extension}");
 
             if (!File.Exists(archivo))

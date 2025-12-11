@@ -22,7 +22,11 @@ namespace Final_Programacion
                 return;
             }
 
-            string carpetaArchivos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Archivos");
+            string carpetaArchivos = Path.Combine(
+                Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)
+                         .Parent.Parent.Parent.Parent.FullName,
+                "Registros"
+            );
             string rutaCompleta = Path.Combine(carpetaArchivos, nombreArchivo);
 
             if (!File.Exists(rutaCompleta))

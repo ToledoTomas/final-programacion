@@ -46,8 +46,15 @@ namespace Final_Programacion
             }
 
             string extension = formato.ToLower();
-            string carpeta = Path.Combine(Application.StartupPath, "Archivos");
+
+            // Carpeta Registros al nivel del proyecto
+            string carpeta = Path.Combine(
+                Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.Parent.FullName,
+                "Registros"
+            );
+
             string archivo = Path.Combine(carpeta, $"{nombreArchivo}.{extension}");
+
 
             if (!File.Exists(archivo))
             {
