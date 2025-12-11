@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Final_Programacion.Models;
+using System;
 using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Final_Programacion
 {
     public partial class ModificarArchivo : Form
     {
         private string carpetaArchivos;
+        private string archivoActual = null;
 
         public ModificarArchivo()
         {
@@ -51,6 +55,7 @@ namespace Final_Programacion
         // ============================
         // CARGAR ARCHIVO
         // ============================
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombreArchivo.Text))
@@ -60,8 +65,6 @@ namespace Final_Programacion
             }
 
             string nombreBase = txtNombreArchivo.Text.Trim();
-
-            // Busca cualquier archivo que empiece con ese nombre sin importar extensión
             string patron = nombreBase + ".*";
             string[] archivos = Directory.GetFiles(carpetaArchivos, patron);
 
@@ -71,37 +74,116 @@ namespace Final_Programacion
                 return;
             }
 
-            // Tomamos el primero que encuentre
-            string rutaFinal = archivos[0];
+            string rutaFinal = archivos[0]; // toma el primero encontrado
+            archivoActual = rutaFinal;
 
             dgvAlumnos.Rows.Clear();
 
-            string[] lineas = File.ReadAllLines(rutaFinal);
+            string extension = Path.GetExtension(rutaFinal).ToLower();
+
+            try
+            {
+                switch (extension)
+                {
+                    case ".txt":
+                        CargarDesdeTXT(rutaFinal);
+                        break;
+
+                    case ".csv":
+                        CargarDesdeCSV(rutaFinal);
+                        break;
+
+                    case ".json":
+                        CargarDesdeJSON(rutaFinal);
+                        break;
+
+                    case ".xml":
+                        CargarDesdeXML(rutaFinal);
+                        break;
+
+                    default:
+                        MessageBox.Show("Formato no soportado: " + extension);
+                        return;
+                }
+
+                MessageBox.Show("Archivo cargado OK (" + Path.GetFileName(rutaFinal) + ")");
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar: " + ex.Message);
+            }
+        }
+
+        private void CargarDesdeCSV(string ruta)
+        {
+            string[] lineas = File.ReadAllLines(ruta);
+
+            bool primeraLineaEsHeader = lineas[0].Contains("Legajo");
+            int inicio = primeraLineaEsHeader ? 1 : 0;
+
+            for (int i = inicio; i < lineas.Length; i++)
+            {
+                string[] partes = lineas[i].Split(',');
+
+                if (partes.Length >= 6)
+                {
+                    dgvAlumnos.Rows.Add(
+                        partes[0], partes[1], partes[2],
+                        partes[3], partes[4], partes[5]
+                    );
+                }
+            }
+        }
+
+        private void CargarDesdeTXT(string ruta)
+        {
+            string[] lineas = File.ReadAllLines(ruta);
 
             foreach (string linea in lineas)
             {
-                string[] partes;
-
-                // detectamos el formato según extensión
-                if (rutaFinal.EndsWith(".txt"))
-                    partes = linea.Split('|');
-
-                else if (rutaFinal.EndsWith(".csv"))
-                    partes = linea.Split(',');
-
-                else
+                string[] partes = linea.Split('|');
+                if (partes.Length >= 6)
                 {
-                    MessageBox.Show("Formato no soportado: " + Path.GetExtension(rutaFinal));
-                    return;
+                    dgvAlumnos.Rows.Add(
+                        partes[0], partes[1], partes[2],
+                        partes[3], partes[4], partes[5]
+                    );
                 }
-
-                if (partes.Length < 6) continue;
-
-                dgvAlumnos.Rows.Add(partes[0], partes[1], partes[2], partes[3], partes[4], partes[5]);
             }
-
-            MessageBox.Show("Archivo cargado OK (" + Path.GetFileName(rutaFinal) + ")");
         }
+
+        private void CargarDesdeJSON(string ruta)
+        {
+            string json = File.ReadAllText(ruta);
+            var alumnos = JsonSerializer.Deserialize<List<Alumno>>(json);
+
+            foreach (var a in alumnos)
+            {
+                dgvAlumnos.Rows.Add(
+                    a.Legajo, a.Apellido, a.Nombres,
+                    a.NumeroDocumento, a.Email, a.Telefono
+                );
+            }
+        }
+
+        private void CargarDesdeXML(string ruta)
+        {
+            XDocument doc = XDocument.Load(ruta);
+
+            foreach (var nodo in doc.Descendants("Alumno"))
+            {
+                dgvAlumnos.Rows.Add(
+                    nodo.Element("Legajo")?.Value,
+                    nodo.Element("Apellido")?.Value,
+                    nodo.Element("Nombres")?.Value,
+                    nodo.Element("NumeroDocumento")?.Value,
+                    nodo.Element("Email")?.Value,
+                    nodo.Element("Telefono")?.Value
+                );
+            }
+        }
+
 
 
         // ============================
@@ -253,63 +335,153 @@ namespace Final_Programacion
         // ============================
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombreArchivo.Text))
+            if (archivoActual == null)
             {
-                MessageBox.Show("Poné el nombre del archivo arriba.");
+                MessageBox.Show("Primero cargá un archivo.");
                 return;
             }
 
-            string nombreBase = txtNombreArchivo.Text;
-            string rutaTxt = Path.Combine(carpetaArchivos, nombreBase + ".txt");
-            string rutaBak = Path.Combine(carpetaArchivos, nombreBase + ".bak");
+            string extension = Path.GetExtension(archivoActual).ToLower();
+            string backup = archivoActual + ".bak";
 
-            // backup
-            if (File.Exists(rutaTxt))
+            // Crear backup
+            try
             {
-                try
-                {
-                    if (File.Exists(rutaBak))
-                        File.Delete(rutaBak);
+                if (File.Exists(backup))
+                    File.Delete(backup);
 
-                    File.Move(rutaTxt, rutaBak);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudo hacer el backup: " + ex.Message);
-                    return;
-                }
+                File.Copy(archivoActual, backup);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error creando backup: " + ex.Message);
+                return;
             }
 
             try
             {
-                using (StreamWriter sw = new StreamWriter(rutaTxt, false))
+                switch (extension)
                 {
-                    foreach (DataGridViewRow fila in dgvAlumnos.Rows)
-                    {
-                        if (fila.IsNewRow) continue;
+                    case ".txt":
+                        GuardarComoTXT(archivoActual);
+                        break;
 
-                        string legajo = fila.Cells[0].Value?.ToString() ?? "";
-                        string apellido = fila.Cells[1].Value?.ToString() ?? "";
-                        string nombre = fila.Cells[2].Value?.ToString() ?? "";
-                        string dni = fila.Cells[3].Value?.ToString() ?? "";
-                        string email = fila.Cells[4].Value?.ToString() ?? "";
-                        string telefono = fila.Cells[5].Value?.ToString() ?? "";
+                    case ".csv":
+                        GuardarComoCSV(archivoActual);
+                        break;
 
-                        string linea = legajo + "|" + apellido + "|" + nombre + "|" +
-                                       dni + "|" + email + "|" + telefono;
+                    case ".json":
+                        GuardarComoJSON(archivoActual);
+                        break;
 
-                        sw.WriteLine(linea);
-                    }
+                    case ".xml":
+                        GuardarComoXML(archivoActual);
+                        break;
+
+                    default:
+                        MessageBox.Show("Formato no soportado: " + extension);
+                        return;
                 }
 
-                MessageBox.Show("Archivo guardado OK.");
+                MessageBox.Show("Archivo guardado correctamente.");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hubo un problema al guardar: " + ex.Message);
+                MessageBox.Show("Hubo un error al guardar: " + ex.Message);
             }
         }
+
+        private void GuardarComoTXT(string ruta)
+        {
+            using (StreamWriter sw = new StreamWriter(ruta, false))
+            {
+                foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+                {
+                    if (fila.IsNewRow) continue;
+
+                    sw.WriteLine(string.Join("|", new string[]
+                    {
+                        fila.Cells[0].Value?.ToString(),
+                        fila.Cells[1].Value?.ToString(),
+                        fila.Cells[2].Value?.ToString(),
+                        fila.Cells[3].Value?.ToString(),
+                        fila.Cells[4].Value?.ToString(),
+                        fila.Cells[5].Value?.ToString()
+                    }));
+                }
+            }
+        }
+
+        private void GuardarComoCSV(string ruta)
+        {
+            using (StreamWriter sw = new StreamWriter(ruta, false))
+            {
+                sw.WriteLine("Legajo,Apellido,Nombres,NumeroDocumento,Email,Telefono");
+
+                foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+                {
+                    if (fila.IsNewRow) continue;
+
+                    sw.WriteLine(string.Join(",", new string[]
+                    {
+                        fila.Cells[0].Value?.ToString(),
+                        fila.Cells[1].Value?.ToString(),
+                        fila.Cells[2].Value?.ToString(),
+                        fila.Cells[3].Value?.ToString(),
+                        fila.Cells[4].Value?.ToString(),
+                        fila.Cells[5].Value?.ToString()
+                    }));
+                }
+            }
+        }
+
+        private void GuardarComoJSON(string ruta)
+        {
+            var lista = new List<Alumno>();
+
+            foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                lista.Add(new Alumno
+                {
+                    Legajo = fila.Cells[0].Value?.ToString(),
+                    Apellido = fila.Cells[1].Value?.ToString(),
+                    Nombres = fila.Cells[2].Value?.ToString(),
+                    NumeroDocumento = fila.Cells[3].Value?.ToString(),
+                    Email = fila.Cells[4].Value?.ToString(),
+                    Telefono = fila.Cells[5].Value?.ToString()
+                });
+            }
+
+            File.WriteAllText(ruta, JsonSerializer.Serialize(lista, new JsonSerializerOptions { WriteIndented = true }));
+        }
+
+        private void GuardarComoXML(string ruta)
+        {
+            XElement root = new XElement("Alumnos");
+
+            foreach (DataGridViewRow fila in dgvAlumnos.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                XElement alumno = new XElement("Alumno",
+                    new XElement("Legajo", fila.Cells[0].Value?.ToString()),
+                    new XElement("Apellido", fila.Cells[1].Value?.ToString()),
+                    new XElement("Nombres", fila.Cells[2].Value?.ToString()),
+                    new XElement("NumeroDocumento", fila.Cells[3].Value?.ToString()),
+                    new XElement("Email", fila.Cells[4].Value?.ToString()),
+                    new XElement("Telefono", fila.Cells[5].Value?.ToString())
+                );
+
+                root.Add(alumno);
+            }
+
+            root.Save(ruta);
+        }
+
+
 
         // ============================
         // CANCELAR

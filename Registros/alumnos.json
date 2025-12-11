@@ -1,0 +1,402 @@
+[
+  {
+    "Legajo": "1",
+    "Apellido": "Diaz",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000001",
+    "Email": "alumno1@mail.com",
+    "Telefono": "3410000001"
+  },
+  {
+    "Legajo": "2",
+    "Apellido": "Perez",
+    "Nombres": "Maria",
+    "NumeroDocumento": "30000002",
+    "Email": "alumno2@mail.com",
+    "Telefono": "3410000002"
+  },
+  {
+    "Legajo": "3",
+    "Apellido": "Martinez",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000003",
+    "Email": "alumno3@mail.com",
+    "Telefono": "3410000003"
+  },
+  {
+    "Legajo": "4",
+    "Apellido": "Torres",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000004",
+    "Email": "alumno4@mail.com",
+    "Telefono": "3410000004"
+  },
+  {
+    "Legajo": "5",
+    "Apellido": "Perez",
+    "Nombres": "Carlos",
+    "NumeroDocumento": "30000005",
+    "Email": "alumno5@mail.com",
+    "Telefono": "3410000005"
+  },
+  {
+    "Legajo": "6",
+    "Apellido": "Ramirez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000006",
+    "Email": "alumno6@mail.com",
+    "Telefono": "3410000006"
+  },
+  {
+    "Legajo": "7",
+    "Apellido": "Lopez",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000007",
+    "Email": "alumno7@mail.com",
+    "Telefono": "3410000007"
+  },
+  {
+    "Legajo": "8",
+    "Apellido": "Diaz",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000008",
+    "Email": "alumno8@mail.com",
+    "Telefono": "3410000008"
+  },
+  {
+    "Legajo": "9",
+    "Apellido": "Gomez",
+    "Nombres": "Carlos",
+    "NumeroDocumento": "30000009",
+    "Email": "alumno9@mail.com",
+    "Telefono": "3410000009"
+  },
+  {
+    "Legajo": "10",
+    "Apellido": "Lopez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000010",
+    "Email": "alumno10@mail.com",
+    "Telefono": "3410000010"
+  },
+  {
+    "Legajo": "11",
+    "Apellido": "Diaz",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000011",
+    "Email": "alumno11@mail.com",
+    "Telefono": "3410000011"
+  },
+  {
+    "Legajo": "12",
+    "Apellido": "Diaz",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000012",
+    "Email": "alumno12@mail.com",
+    "Telefono": "3410000012"
+  },
+  {
+    "Legajo": "13",
+    "Apellido": "Perez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000013",
+    "Email": "alumno13@mail.com",
+    "Telefono": "3410000013"
+  },
+  {
+    "Legajo": "14",
+    "Apellido": "Gomez",
+    "Nombres": "Sofia",
+    "NumeroDocumento": "30000014",
+    "Email": "alumno14@mail.com",
+    "Telefono": "3410000014"
+  },
+  {
+    "Legajo": "15",
+    "Apellido": "Ramirez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000015",
+    "Email": "alumno15@mail.com",
+    "Telefono": "3410000015"
+  },
+  {
+    "Legajo": "16",
+    "Apellido": "Fernandez",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000016",
+    "Email": "alumno16@mail.com",
+    "Telefono": "3410000016"
+  },
+  {
+    "Legajo": "17",
+    "Apellido": "Gomez",
+    "Nombres": "Lucia",
+    "NumeroDocumento": "30000017",
+    "Email": "alumno17@mail.com",
+    "Telefono": "3410000017"
+  },
+  {
+    "Legajo": "18",
+    "Apellido": "Fernandez",
+    "Nombres": "Pedro",
+    "NumeroDocumento": "30000018",
+    "Email": "alumno18@mail.com",
+    "Telefono": "3410000018"
+  },
+  {
+    "Legajo": "19",
+    "Apellido": "Fernandez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000019",
+    "Email": "alumno19@mail.com",
+    "Telefono": "3410000019"
+  },
+  {
+    "Legajo": "20",
+    "Apellido": "Ramirez",
+    "Nombres": "Sofia",
+    "NumeroDocumento": "30000020",
+    "Email": "alumno20@mail.com",
+    "Telefono": "3410000020"
+  },
+  {
+    "Legajo": "21",
+    "Apellido": "Martinez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000021",
+    "Email": "alumno21@mail.com",
+    "Telefono": "3410000021"
+  },
+  {
+    "Legajo": "22",
+    "Apellido": "Perez",
+    "Nombres": "Carlos",
+    "NumeroDocumento": "30000022",
+    "Email": "alumno22@mail.com",
+    "Telefono": "3410000022"
+  },
+  {
+    "Legajo": "23",
+    "Apellido": "Perez",
+    "Nombres": "Pedro",
+    "NumeroDocumento": "30000023",
+    "Email": "alumno23@mail.com",
+    "Telefono": "3410000023"
+  },
+  {
+    "Legajo": "24",
+    "Apellido": "Lopez",
+    "Nombres": "Maria",
+    "NumeroDocumento": "30000024",
+    "Email": "alumno24@mail.com",
+    "Telefono": "3410000024"
+  },
+  {
+    "Legajo": "25",
+    "Apellido": "Martinez",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000025",
+    "Email": "alumno25@mail.com",
+    "Telefono": "3410000025"
+  },
+  {
+    "Legajo": "26",
+    "Apellido": "Ramirez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000026",
+    "Email": "alumno26@mail.com",
+    "Telefono": "3410000026"
+  },
+  {
+    "Legajo": "27",
+    "Apellido": "Gomez",
+    "Nombres": "Maria",
+    "NumeroDocumento": "30000027",
+    "Email": "alumno27@mail.com",
+    "Telefono": "3410000027"
+  },
+  {
+    "Legajo": "28",
+    "Apellido": "Lopez",
+    "Nombres": "Sofia",
+    "NumeroDocumento": "30000028",
+    "Email": "alumno28@mail.com",
+    "Telefono": "3410000028"
+  },
+  {
+    "Legajo": "29",
+    "Apellido": "Gomez",
+    "Nombres": "Carlos",
+    "NumeroDocumento": "30000029",
+    "Email": "alumno29@mail.com",
+    "Telefono": "3410000029"
+  },
+  {
+    "Legajo": "30",
+    "Apellido": "Gomez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000030",
+    "Email": "alumno30@mail.com",
+    "Telefono": "3410000030"
+  },
+  {
+    "Legajo": "31",
+    "Apellido": "Fernandez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000031",
+    "Email": "alumno31@mail.com",
+    "Telefono": "3410000031"
+  },
+  {
+    "Legajo": "32",
+    "Apellido": "Lopez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000032",
+    "Email": "alumno32@mail.com",
+    "Telefono": "3410000032"
+  },
+  {
+    "Legajo": "33",
+    "Apellido": "Diaz",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000033",
+    "Email": "alumno33@mail.com",
+    "Telefono": "3410000033"
+  },
+  {
+    "Legajo": "34",
+    "Apellido": "Perez",
+    "Nombres": "Pedro",
+    "NumeroDocumento": "30000034",
+    "Email": "alumno34@mail.com",
+    "Telefono": "3410000034"
+  },
+  {
+    "Legajo": "35",
+    "Apellido": "Fernandez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000035",
+    "Email": "alumno35@mail.com",
+    "Telefono": "3410000035"
+  },
+  {
+    "Legajo": "36",
+    "Apellido": "Martinez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000036",
+    "Email": "alumno36@mail.com",
+    "Telefono": "3410000036"
+  },
+  {
+    "Legajo": "37",
+    "Apellido": "Lopez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000037",
+    "Email": "alumno37@mail.com",
+    "Telefono": "3410000037"
+  },
+  {
+    "Legajo": "38",
+    "Apellido": "Lopez",
+    "Nombres": "Sofia",
+    "NumeroDocumento": "30000038",
+    "Email": "alumno38@mail.com",
+    "Telefono": "3410000038"
+  },
+  {
+    "Legajo": "39",
+    "Apellido": "Fernandez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000039",
+    "Email": "alumno39@mail.com",
+    "Telefono": "3410000039"
+  },
+  {
+    "Legajo": "40",
+    "Apellido": "Perez",
+    "Nombres": "Lucia",
+    "NumeroDocumento": "30000040",
+    "Email": "alumno40@mail.com",
+    "Telefono": "3410000040"
+  },
+  {
+    "Legajo": "41",
+    "Apellido": "Torres",
+    "Nombres": "Lucia",
+    "NumeroDocumento": "30000041",
+    "Email": "alumno41@mail.com",
+    "Telefono": "3410000041"
+  },
+  {
+    "Legajo": "42",
+    "Apellido": "Diaz",
+    "Nombres": "Lucia",
+    "NumeroDocumento": "30000042",
+    "Email": "alumno42@mail.com",
+    "Telefono": "3410000042"
+  },
+  {
+    "Legajo": "43",
+    "Apellido": "Martinez",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000043",
+    "Email": "alumno43@mail.com",
+    "Telefono": "3410000043"
+  },
+  {
+    "Legajo": "44",
+    "Apellido": "Fernandez",
+    "Nombres": "Maria",
+    "NumeroDocumento": "30000044",
+    "Email": "alumno44@mail.com",
+    "Telefono": "3410000044"
+  },
+  {
+    "Legajo": "45",
+    "Apellido": "Martinez",
+    "Nombres": "Ana",
+    "NumeroDocumento": "30000045",
+    "Email": "alumno45@mail.com",
+    "Telefono": "3410000045"
+  },
+  {
+    "Legajo": "46",
+    "Apellido": "Torres",
+    "Nombres": "Pedro",
+    "NumeroDocumento": "30000046",
+    "Email": "alumno46@mail.com",
+    "Telefono": "3410000046"
+  },
+  {
+    "Legajo": "47",
+    "Apellido": "Gomez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000047",
+    "Email": "alumno47@mail.com",
+    "Telefono": "3410000047"
+  },
+  {
+    "Legajo": "48",
+    "Apellido": "Perez",
+    "Nombres": "Juan",
+    "NumeroDocumento": "30000048",
+    "Email": "alumno48@mail.com",
+    "Telefono": "3410000048"
+  },
+  {
+    "Legajo": "49",
+    "Apellido": "Diaz",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000049",
+    "Email": "alumno49@mail.com",
+    "Telefono": "3410000049"
+  },
+  {
+    "Legajo": "50",
+    "Apellido": "Martinez",
+    "Nombres": "Luis",
+    "NumeroDocumento": "30000050",
+    "Email": "alumno50@mail.com",
+    "Telefono": "3410000050"
+  }
+]

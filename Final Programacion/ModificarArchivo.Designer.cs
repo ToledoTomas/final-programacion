@@ -101,9 +101,9 @@
             lblNombreArchivo.Location = new Point(35, 9);
             lblNombreArchivo.Margin = new Padding(4, 0, 4, 0);
             lblNombreArchivo.Name = "lblNombreArchivo";
-            lblNombreArchivo.Size = new Size(194, 15);
+            lblNombreArchivo.Size = new Size(202, 15);
             lblNombreArchivo.TabIndex = 1;
-            lblNombreArchivo.Text = "Nombre del archivo (sin extensión).";
+            lblNombreArchivo.Text = "Nombre del archivo ( con extension )";
             // 
             // txtNombreArchivo
             // 
