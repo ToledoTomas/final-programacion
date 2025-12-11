@@ -1,0 +1,26 @@
+[
+  {
+    "Legajo": "1",
+    "Apellido": "David",
+    "Nombres": "Bruno",
+    "NumeroDocumento": "43126134",
+    "Email": "bruno@gmail.com",
+    "Telefono": "3412705762"
+  },
+  {
+    "Legajo": "2",
+    "Apellido": "Santili",
+    "Nombres": "Roman",
+    "NumeroDocumento": "44221221",
+    "Email": "2222@gmail.com",
+    "Telefono": "3322333221"
+  },
+  {
+    "Legajo": "3",
+    "Apellido": "Samuel",
+    "Nombres": "Walter",
+    "NumeroDocumento": "33221112",
+    "Email": "walt@gmail.com",
+    "Telefono": "223321312"
+  }
+]
