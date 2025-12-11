@@ -23,8 +23,9 @@ namespace Final_Programacion
             string carpetaProyecto =
                 Directory.GetParent(Application.StartupPath)  // net8.0-windows
                          .Parent                             // Debug
-                         .Parent                             // bin
-                         .Parent                             // Final Programacion
+                         .Parent
+                         .Parent
+                         .Parent// bin
                          .FullName;                          // final-programacion
 
             carpetaArchivos = Path.Combine(carpetaProyecto, "Registros");
@@ -79,7 +80,7 @@ namespace Final_Programacion
 
                 if (!File.Exists(rutaOrigen))
                 {
-                    MessageBox.Show("El archivo de origen no existe en la carpeta Archivos.");
+                    MessageBox.Show("El archivo de origen no existe en la carpeta Registros.");
                     return;
                 }
             }
